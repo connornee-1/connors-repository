@@ -1,0 +1,6 @@
+node_modules
+dist
+
+# Local workspace tooling and verification artifacts.
+work/
+outputs/
