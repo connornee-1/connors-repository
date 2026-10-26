@@ -1,0 +1,6 @@
+import {asset, dishes, links} from '../content';
+import {useReveals} from '../hooks/useReveals';
+export function Details() {
+ const ref=useReveals<HTMLElement>();
+ return <section ref={ref} id="menu" className="food-section section-pad"><div className="section-heading" data-reveal><div><p className="eyebrow">01 / COME HUNGRY</p><h2>A LITTLE COMFORT.<br/><em>A lot of flavor.</em></h2></div><p>Big bowls, bold flavors and something for the table. Start with a favorite. Come back for the next one.</p></div><div className="dish-grid">{dishes.map((d,i)=><article className="dish-card" key={d.id} data-reveal><a href={d.url} target="_blank" rel="noreferrer" className="dish-photo"><img src={asset(d.image)} alt={d.alt} width="750" height="1000" loading="lazy"/><span className="dish-number">0{i+1}</span><span className="photo-arrow" aria-label={`View ${d.title} on Mecha’s official website`}>↗</span></a><p className="eyebrow dish-category">{d.category}</p><h3>{d.title}</h3><p>{d.description}</p></article>)}</div><div className="menu-note"><p>This is a taste of the menu. Items and availability may vary. Ask Mecha directly about ingredients and allergies.</p><a className="text-link dark" href={links.menu} target="_blank" rel="noreferrer">Explore the official menu ↗</a></div></section>;
+}
