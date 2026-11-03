@@ -25,6 +25,15 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - run: npm ci
+        working-directory: consumer-lab
+      - run: npm test
+        working-directory: consumer-lab
+      - run: python3 scripts/package-extension.py
+        working-directory: consumer-lab
+      - run: npm run build
+        working-directory: consumer-lab
+      - run: cp -R consumer-lab/dist dist/consumer-lab
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
